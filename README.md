@@ -1,8 +1,11 @@
-# PyCSRAPI
+# PyCSRAPI (onlinecsrgenerator.com)
 Python Flask app (api) to generate the certificate signing request.
 
 Internally, this will call up openssl shell command, generate signing request and then read csr & key.
 Afterwards, deletes both .key & .csr files from physical disk, returns it back to response. 
+
+FrontEnd : ~~BootStrap 3.~~ Now using BootStrap 5!
+BackEnd : Flask - Python API.
 
 ## Deploy on Heroku
 
@@ -85,5 +88,5 @@ services:
 
 
 To Do:
-Will add one Nice GUI at /gui path. 
-WIP.
+~~Will add one Nice GUI at /gui path. ~~ - DONE! (Check the forntend part.)
+
