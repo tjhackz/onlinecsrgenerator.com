@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3F5T5F182"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3F5T5F182"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-E3F5T5F182');
-</script>
+        gtag('config', 'G-E3F5T5F182');
+    </script>
 
 
     <title>Online CSR Generator</title>
-    <link rel="canonical" href="https://onlinecsrgenerator.com"/>
+    <link rel="canonical" href="https://onlinecsrgenerator.com" />
     <meta name="description" content="Online CSR Generator">
-    <meta name="keywords" content="csr, generate csr, csr online, online csr, csr generator online, online csr generator, generate csr, generate online csr">
+    <meta name="keywords"
+        content="csr, generate csr, csr online, online csr, csr generator online, online csr generator, generate csr, generate online csr">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content = "jayvardhan">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <meta name="author" content="jayvardhan">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   
+
+
 
     <style>
         .footer {
             position: fixed;
             left: 0;
-            bottom: 0;            
+            bottom: 0;
             width: 100%;
-            background-color: white;
+            /* height: 6%; */
+            /* background-color: white; */
+            background-color: #f5f5f5;
             color: black;
             text-align: center;
+            padding-top: 10px;
         }
-
-      
-
     </style>
 
 </head>
@@ -48,403 +53,432 @@
 
 
     <div class="container">
-        <h1 class="text-center">Online CSR Generator</h1>
-        <br />
-        <form class="form-horizontal" id="csrform">
-            <fieldset>
-
-                <!-- Form Name
-                <legend>CSR Generator :</legend>-->
-                <!-- Text input-->
-                <div id="error_div" class="form-group invisible">
-                    <!--<label class="col-md-4 control-label" for="textinput_error">Error: </label>
-                    <div class="col-md-4">
-                        <input id="textinput_error" name="textinput_error" type="text" placeholder="" class="form-control input-md">
-
-                    </div>-->
-
-                    <div id="textinput_error" class="alert alert-danger" role="alert">
-
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_CN">Common Name:</label>
-                    <div class="col-md-4">
-                        <input id="textinput_CN" name="textinput_CN" type="text" placeholder="example.com" maxlength="100" class="form-control input-md" required="">
-                        <span class="help-block">Please enter your Common Name here. (CN)</span>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_O">Organization:</label>
-                    <div class="col-md-4">
-                        <input id="textinput_O" name="textinput_O" type="text" placeholder="xyz organization pvt ltd" maxlength="100" class="form-control input-md" required="">
-                        <span class="help-block">Enter your Organization Name here. (O)</span>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_C">Country:</label>
-                    <div class="col-md-4">
-                        <input id="textinput_C" name="textinput_C" type="text" placeholder="IN" class="form-control input-md" maxlength="3" required="">
-                        <span class="help-block">Enter 2 or 3 Letter ISO Country Code here. (C)</span>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_S">State:</label>
-                    <div class="col-md-4">
-                        <input id="textinput_S" name="textinput_S" type="text" placeholder="Gujarat" class="form-control input-md" maxlength="100" required="">
-                        <span class="help-block">Enter State Name/ State Code here. (S)</span>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_L">Locality/City:</label>
-                    <div class="col-md-4">
-                        <input id="textinput_L" name="textinput_L" type="text" placeholder="Ahmedabad" class="form-control input-md" maxlength="100" required="">
-                        <span class="help-block">Enter City Name/ Locality here. (L)</span>
-                    </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                    <label class="col-md-4 control-label" for="textinput_OU">Organization Unit</label>
-                    <div class="col-md-4">
-                        <input id="textinput_OU" name="textinput_OU" type="text" placeholder="IT" maxlength="20" class="form-control input-md">
-                        <span class="help-block">Enter Organization Unit here. (OU)</span>
-                    </div>
-                </div>
-
-                <!-- Multiple Radios (inline) -->
-                <div class="form-group" id="radiokeysize">
-                    <label class="col-md-4 control-label" for="radios_KeySize">Key Size</label>
-                    <div class="col-md-4">
-                        <label class="radio-inline" for="radios_KeySize-0">
-                            <input type="radio" name="radios_KeySize" id="radios_KeySize-0" value="2048" checked="checked">
-                            2048
-                        </label>
-                        <label class="radio-inline" for="radios_KeySize-1">
-                            <input type="radio" name="radios_KeySize" id="radios_KeySize-1" value="4096">
-                            4096
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Button -->
-                <br />
-                <div class="form-group text-center">
-                    <label class="col-md-4 control-label" for="button_Submit"></label>
-                    <div class="col-md-4">
-                        <button id="button_Submit" name="button_Submit" data-loading-text="Generating..." class="btn btn-primary btn-lg">Generate CSR</button>
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-
-
-        <div class="form-horizontal" style="margin-bottom:100px;">
-            <fieldset>
-                <!-- Textarea -->
-                <div id="text_csr_area" class="form-group invisible">
-                    <label class="col-md-4 control-label" for="textarea_csr">CSR :</label>
-                    <div class="col-md-4">
-                        <textarea class="form-control" id="textarea_csr" onclick="this.focus(); this.select(); document.execCommand('copy'); " rows="18" cols="40" readonly name="textarea_csr"></textarea>
-                    </div>
-                </div>
-
-                <!-- Button (Double) -->
-                <div id="divdownloads" class="form-group invisible">
-                    <label class="col-md-4 control-label" for="button_downloadcsr"></label>
-                    <div class="col-md-8">
-                        <button id="button_downloadcsr" name="button_downloadcsr" class="btn btn-info">Download CSR</button>
-                        <button id="button_downloadprivatekey" name="button_downloadprivatekey" class="btn btn-success">Download Private Key</button>
-                    </div>
-                </div>
-
-                <br />
-
-                <div id="divreset" class="form-group invisible">
-                    <label class="col-md-4 control-label" for="button_reset"></label>
-                    <div class="col-md-8">
-                        <button id="button_reset" name="button_reset" class="btn btn-warning">Reset</button>
-
-                    </div>
-                </div>
-
-            </fieldset>
+        <div class="page-header">
+            <br />
+            <h1 class="text-center">Online CSR Generator</h1>
         </div>
 
-    </div>
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <form class="form-horizontal" id="csrform">
+                        <fieldset>
+
+                            <div id="error_div" class="form-group invisible">
+                                <div id="textinput_error" class="alert alert-danger" role="alert">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_CN">Common Name:</label>
+                                <div class="">
+                                    <input id="textinput_CN" name="textinput_CN" type="text" placeholder="example.com"
+                                        maxlength="100" class="form-control input-md" required=""
+                                        data-sb-validations="required" />
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_O">Organization:</label>
+                                <div class="">
+                                    <input id="textinput_O" name="textinput_O" type="text"
+                                        placeholder="ABC Organization LLC" maxlength="100" class="form-control input-md"
+                                        required="">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_C">Country:</label>
+                                <div class="">
+                                    <input id="textinput_C" name="textinput_C" type="text" placeholder="IN"
+                                        class="form-control input-md" maxlength="3" required="">
+                                    <span class="help-block">Enter 2 or 3 Letter ISO Country Code here. (C)</span>
+                                </div>
+                            </div>
 
 
-    <script>
-
-    </script>
-
-
-    <div class="footer">
-
-        <p>
-            
-			<a href="https://github.com/tjhackzy/PyCSRAPI" target="_blank">
-			<img src="githubimage.svg" alt="github image tjhackz"width="32" height="32" />
-			</a>
-			<br />
-            © Copyright 2022. 
-            By, Jayvardhan.
-        </p>
-    </div>
-	<script src="jquery.min.js"  ></script>
-    <script src="bootstrap.min.js"  ></script>
-
- <script>
-     
-        function download(filename, text) {
-            var element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-            element.setAttribute('download', filename);
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-       
-        function showError(errortext) {
-            $("#error_div").removeClass("invisible");
-            $("#error_div").addClass("visible");
-            $("#textinput_error")[0].innerHTML = errortext;
-        }
-        function hideError() {
-            $("#error_div").removeClass("visible");
-            $("#error_div").addClass("invisible");
-            $("#textinput_error")[0].innerHTML = '';
-        }
-
-        function showCSR(csrtext) {
-            $("#text_csr_area").removeClass("invisible");
-            $("#text_csr_area").addClass("visible");
-            $("#textarea_csr")[0].innerHTML = csrtext;
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_S">State:</label>
+                                <div class="">
+                                    <input id="textinput_S" name="textinput_S" type="text" placeholder="Gujarat"
+                                        class="form-control input-md" maxlength="100" required="">
+                                    <span class="help-block">Enter State Name/ State Code here. (S)</span>
+                                </div>
+                            </div>
 
 
-            $("#divdownloads").removeClass("invisible");
-            $("#divdownloads").addClass("visible");
-
-            $("#divreset").removeClass("invisible");
-            $("#divreset").addClass("visible");
-
-
-        }
-
-        function hideCSR() {
-            $("#text_csr_area").removeClass("visible");
-            $("#text_csr_area").addClass("invisible");
-            $("#textarea_csr")[0].innerHTML = '';
-
-            $("#divdownloads").removeClass("visible");
-            $("#divdownloads").addClass("invisible");
-
-            $("#divreset").removeClass("visible");
-            $("#divreset").addClass("invisible");
-        }
-        function emptyfun() {
-
-        }
-
-        function makeResponse(error, publickey, privatekey) {
-
-            var obj = {
-                error: error,
-                publickey: publickey,
-                privatekey: privatekey
-            };
-
-            return obj;
-        }
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_L">Locality/City:</label>
+                                <div class="">
+                                    <input id="textinput_L" name="textinput_L" type="text" placeholder="Ahmedabad"
+                                        class="form-control input-md" maxlength="100" required="">
+                                    <span class="help-block">Enter City Name/ Locality here. (L)</span>
+                                </div>
+                            </div>
 
 
-        function showoutput(objret1) {
+                            <div class="mb-3">
+                                <label class="form-label" for="textinput_OU">Organization Unit</label>
+                                <div class="">
+                                    <input id="textinput_OU" name="textinput_OU" type="text" placeholder="IT"
+                                        maxlength="20" class="form-control input-md">
+                                    <span class="help-block">Enter Organization Unit here. (OU)</span>
+                                </div>
+                            </div>
 
-            $("#button_Submit").button('reset');
+                            <div class="mb-3" id="radiokeysize">
+                                <label class="form-label" for="radios_KeySize">Key Size</label>
+                                <div class="form-check">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" id="radios_KeySize-0" type="radio" value="2048"
+                                            name="radios_KeySize" data-sb-validations="required" checked />
+                                        <label class="form-check-label" for="radios_KeySize-0">2048</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" id="radios_KeySize-1" type="radio" value="4096"
+                                            name="radios_KeySize" data-sb-validations="required" />
+                                        <label class="form-check-label" for="radios_KeySize-1">4096</label>
+                                    </div>
 
-            $("#button_downloadprivatekey").button('reset');
+                                </div>
+                            </div>
 
-            $("#button_downloadcsr").button('reset');
+                            <br />
+                            <div class="form-group text-center">
+                                <label class="form-label" for="button_Submit"></label>
+                                <div class="">
+                                    <button id="button_Submit" ty="submit" name="button_Submit"
+                                        data-loading-text="Generating..." class="btn btn-primary btn-lg">Generate
+                                        CSR</button>
+                                </div>
+                            </div>
 
-            $("#button_downloadprivatekey").off();
-            $("#button_downloadcsr").off();
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col" id="result_div_main_1" >
 
-            if (Object.keys(objret1).length === 0) {
+                    <div class="form-horizontal">
+                        <fieldset>
 
-                showError('Internal Server Error!');
-                hideCSR();
+                            <div id="text_csr_area" class="form-group invisible">
+                                <label class="form-label" for="textarea_csr">CSR : (Click on CSR to Copy To
+                                    Clipboard)</label>
+                                <div class="">
+                                    <textarea class="form-control" id="textarea_csr"
+                                        onclick="this.focus(); this.select(); document.execCommand('copy'); " rows="26"
+                                        cols="40" readonly name="textarea_csr"></textarea>
+                                </div>
+                            </div>
 
-                window.scrollTo(0, 0);
+
+                            <div id="divdownloads" class="form-group invisible">
+                                <label class="form-label" for="button_downloadcsr"></label>
+                                <div class="container form-group">
+                                    <div class="float-start">
+                                    <button id="button_downloadcsr" name="button_downloadcsr"
+                                        class="btn btn-info">Download CSR</button>
+                                    </div>
+                                    <div class="float-end">
+                                    <button id="button_downloadprivatekey" name="button_downloadprivatekey"
+                                        class="btn btn-success">Download Private Key</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div id="divreset" class="form-group invisible">
+                                <label class="form-label" for="button_reset"></label>
+                                <div class="container float-start">
+                                    <button id="button_reset" name="button_reset" class="btn btn-warning">Reset</button>
+
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+
+        </script>
+
+
+        <div class="footer">
+            <p>
+                <a href="https://github.com/tjhackz/onlinecsrgenerator.com" target="_blank">
+                    <img src="githubimage.svg" alt="github image tjhackz" width="32" height="32" />
+                </a>
+                <br />
+                © Copyright 2023.
+                By, Jayvardhan.         (Now using BootStrap 5!)       
+            </p>
+        </div>
+        <script src="jquery.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+            integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+
+            function download(filename, text) {
+                var element = document.createElement('a');
+                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                element.setAttribute('download', filename);
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+            }
+
+            function showError(errortext) {
+                $("#error_div").removeClass("invisible");
+                $("#error_div").addClass("visible");
+                $("#textinput_error")[0].innerHTML = errortext;
+            }
+            function hideError() {
+                $("#error_div").removeClass("visible");
+                $("#error_div").addClass("invisible");
+                $("#textinput_error")[0].innerHTML = '';
+            }
+
+            function showCSR(csrtext) {
+                $("#text_csr_area").removeClass("invisible");
+                $("#text_csr_area").addClass("visible");
+                $("#textarea_csr")[0].innerHTML = csrtext;
+
+
+                $("#divdownloads").removeClass("invisible");
+                $("#divdownloads").addClass("visible");
+
+                $("#divreset").removeClass("invisible");
+                $("#divreset").addClass("visible");
+
 
             }
-            else if (objret1.error.trim() === null || objret1.error.trim() === '') {
 
+            function hideCSR() {
+                $("#text_csr_area").removeClass("visible");
+                $("#text_csr_area").addClass("invisible");
+                $("#textarea_csr")[0].innerHTML = '';
 
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: $("#text_csr_area").offset().top
-                }, 1000);
+                $("#divdownloads").removeClass("visible");
+                $("#divdownloads").addClass("invisible");
 
-                showCSR((stripTrailingSlash(objret1.publickey)));
-                hideError();
-                $("#button_downloadprivatekey").click(function () {
-
-                    download("private_key.txt", objret1.privatekey);
-                });
-
-
-                $("#button_downloadcsr").click(function () {
-
-                    download("csr.txt", objret1.publickey);
-                });
+                $("#divreset").removeClass("visible");
+                $("#divreset").addClass("invisible");
+            }
+            function emptyfun() {
 
             }
-            else {
 
-                showError(objret1.error);
-                hideCSR();
-                window.scrollTo(0, 0);
-            }
+            function makeResponse(error, publickey, privatekey) {
 
-        }
-
-
-        function resetform() {
-            location.reload();
-            window.scrollTo(0, 0);
-        }
-
-        function enterCSR(cn = '', c = '', st = '', l = '', o = '', ou = '', size = '') {
-
-
-            var publickey = '';
-            var privatekey = '';
-            var error = '';
-            hideError();
-            hideCSR();
-
-            var data1 = '{"commonname": "' + cn + '", "country": "' + c + '", "state": "' + st + '", "locality": "' + l + '", "organization": "' + o + '", "organizationunit": "' + ou + '","keysize": "' + size + '" }';
-
-            $.ajax({
-                type: "POST",
-                url: "https://api.onlinecsrgenerator.com/generate",
-                //async: false,
-                data: data1,
-                contentType: "application/json; charset=utf-8",
-                crossDomain: true,
-                dataType: "json",
-                success: function (data, status, jqXHR) {
-
-                    $.each(data, function (key, value) {
-
-                        if (key == "error" && !value.trim()) {
-
-                            error = value;
-                        } else {
-                            if (key == "csr") {
-
-                                publickey = value;
-                            }
-                            if (key == "key") {
-
-                                privatekey = value;
-                            }
-                        }
-                    });
-
-
-                    var ansfinal = makeResponse(error, publickey, privatekey);
-                    showoutput(ansfinal);
-                },
-                error: function (data, status, jqXHR) {
-
-                    error = "Internal Server Error. " + status;
-                    $.each(data, function (key, value) {
-
-
-                        if (key == "responseText") {
-
-                            try {
-                                var jsonobj = $.parseJSON(value);
-                                $.each(jsonobj, function (key, ans) {
-
-                                    if (key == "error") {
-                                        error = ans;
-                                    }
-
-
-
-                                });
-                            } catch (err) {
-                                error = "Internal Server Error. -> " + status;
-                            }
-
-                        }
-
-                    });
-
-                    var ansfinal = makeResponse(error, publickey, privatekey);
-                    showoutput(ansfinal);
-                }
-            });
-
-            var ansfinal = makeResponse(error, publickey, privatekey);
-            return ansfinal;
-
-        }
-
-        function stripTrailingSlash(str) {
-            return str.substr(0, str.length - 2);
-        }
-
-        $(document).ready(function () {
-
-            $("#button_reset").click(function () {
-
-                resetform();
-            });
-
-            $("#csrform").submit(function (event) {
-
-
-
-                $("#button_Submit").button('loading');
-
-                var formData = {
-                    cn: $("#textinput_CN").val(),
-                    c: $("#textinput_C").val(),
-                    o: $("#textinput_O").val(),
-                    ou: $("#textinput_OU").val(),
-                    s: $("#textinput_S").val(),
-                    l: $("#textinput_L").val(),
-                    size: $('#radiokeysize input:radio:checked').val(),
-
+                var obj = {
+                    error: error,
+                    publickey: publickey,
+                    privatekey: privatekey
                 };
 
+                return obj;
+            }
+
+
+            function showoutput(objret1) {
+
+                $("#button_Submit").button('reset');
+                $("#button_Submit").text('Generate CSR');
+                document.getElementById("button_Submit").disabled = false;
+                $("#button_downloadprivatekey").button('reset');
+
+                $("#button_downloadcsr").button('reset');
+
+                $("#button_downloadprivatekey").off();
+                $("#button_downloadcsr").off();
+
+                if (Object.keys(objret1).length === 0) {
+
+                    showError('Internal Server Error!');
+                    hideCSR();
+
+                    window.scrollTo(0, 0);
+
+                }
+                else if (objret1.error.trim() === null || objret1.error.trim() === '') {
+
+
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $("#text_csr_area").offset().top
+                    }, 1000);
+
+                    showCSR((stripTrailingSlash(objret1.publickey)));
+                    hideError();
+                    $("#button_downloadprivatekey").click(function () {
+
+                        download("private_key.txt", objret1.privatekey);
+                    });
+
+
+                    $("#button_downloadcsr").click(function () {
+
+                        download("csr.txt", objret1.publickey);
+                    });
+
+                }
+                else {
+
+                    showError(objret1.error);
+                    hideCSR();
+                    window.scrollTo(0, 0);
+                    $("#result_div_main_1").removeClass().addClass("shjfkshf");
+                    $("#result_div_main_1").hide();
+                }
+
+            }
+
+
+            function resetform() {
+                location.reload();
+                window.scrollTo(0, 0);
+                $("#result_div_main_1").removeClass().addClass("shjfkshf");
+                $("#result_div_main_1").hide();
+            }
+
+            function enterCSR(cn = '', c = '', st = '', l = '', o = '', ou = '', size = '') {
+
+
+                var publickey = '';
+                var privatekey = '';
+                var error = '';
                 hideError();
                 hideCSR();
 
-                const resfinal = enterCSR(formData.cn, formData.c, formData.s, formData.l, formData.o, formData.ou, formData.size);
+                var data1 = '{"commonname": "' + cn + '", "country": "' + c + '", "state": "' + st + '", "locality": "' + l + '", "organization": "' + o + '", "organizationunit": "' + ou + '","keysize": "' + size + '" }';
 
-                //$("#button_Submit").button('reset');
+                $.ajax({
+                    type: "POST",
+                    url: "https://api.onlinecsrgenerator.com/generate",
+                    //async: false,
+                    data: data1,
+                    contentType: "application/json; charset=utf-8",
+                    crossDomain: true,
+                    dataType: "json",
+                    success: function (data, status, jqXHR) {
+
+                        $.each(data, function (key, value) {
+
+                            if (key == "error" && !value.trim()) {
+
+                                error = value;
+                            } else {
+                                if (key == "csr") {
+
+                                    publickey = value;
+                                }
+                                if (key == "key") {
+
+                                    privatekey = value;
+                                }
+                            }
+                        });
 
 
-                event.preventDefault();
+                        var ansfinal = makeResponse(error, publickey, privatekey);
+                        showoutput(ansfinal);
+                    },
+                    error: function (data, status, jqXHR) {
+
+                        error = "Internal Server Error. " + status;
+                        $.each(data, function (key, value) {
+
+
+                            if (key == "responseText") {
+
+                                try {
+                                    var jsonobj = $.parseJSON(value);
+                                    $.each(jsonobj, function (key, ans) {
+
+                                        if (key == "error") {
+                                            error = ans;
+                                        }
+
+
+
+                                    });
+                                } catch (err) {
+                                    error = "Internal Server Error. -> " + status;
+                                }
+
+                            }
+
+                        });
+
+                        var ansfinal = makeResponse(error, publickey, privatekey);
+                        showoutput(ansfinal);
+                    }
+                });
+
+                var ansfinal = makeResponse(error, publickey, privatekey);
+                return ansfinal;
+
+            }
+
+            function stripTrailingSlash(str) {
+                return str.substr(0, str.length - 2);
+            }
+
+            $(document).ready(function () {
+
+                $("#result_div_main_1").removeClass().addClass("shjfkshf");
+                $("#result_div_main_1").hide();
+                $("#button_reset").click(function () {
+
+                    resetform();
+                });
+
+                $("#csrform").submit(function (event) {
+
+
+                    $("#result_div_main_1").removeClass().addClass("col");
+                    $("#result_div_main_1").show();
+                    $("#button_Submit").text('Loading');
+                    document.getElementById("button_Submit").disabled = true;
+                    document.getElementById("button_Submit").innerHTML
+                        = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>Loading...';
+
+
+                    var formData = {
+                        cn: $("#textinput_CN").val(),
+                        c: $("#textinput_C").val(),
+                        o: $("#textinput_O").val(),
+                        ou: $("#textinput_OU").val(),
+                        s: $("#textinput_S").val(),
+                        l: $("#textinput_L").val(),
+                        size: $('#radiokeysize input:radio:checked').val(),
+
+                    };
+
+                    hideError();
+                    hideCSR();
+
+                    const resfinal = enterCSR(formData.cn, formData.c, formData.s, formData.l, formData.o, formData.ou, formData.size);
+
+                    //$("#button_Submit").button('reset');
+
+
+                    event.preventDefault();
+                });
             });
-        });
 
-    </script>
+        </script>
 
 </body>
+
 </html>
