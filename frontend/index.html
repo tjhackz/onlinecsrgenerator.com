@@ -62,7 +62,7 @@
 
         <div class="container" style="padding-bottom: 100px;">
             <div class="row">
-                
+
                 <div class="col">
 
                     <form class="form-horizontal" id="csrform">
@@ -96,9 +96,10 @@
                                 <div class="">
                                     <!-- <input id="textinput_C" name="textinput_C" type="text" placeholder="IN"
                                         class="form-control input-md" maxlength="3" required=""> -->
-                                    
-                                    <select data-show-subtext="true" data-live-search="true" 
-                                    id="textinput_C" name="textinput_C" placeholder="Select" class="form-select select-md" required="">
+
+                                    <select data-show-subtext="true" data-live-search="true" id="textinput_C"
+                                        name="textinput_C" placeholder="Select" class="form-select select-md"
+                                        required="">
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Aland Islands</option>
                                         <option value="AL">Albania</option>
@@ -409,22 +410,36 @@
                             <div class="form-group text-center">
                                 <label class="form-label" for="button_Submit"></label>
                                 <div class="">
-                                    <button id="button_Submit" ty="submit" name="button_Submit"
+                                    <button id="button_Submit" type="submit" name="button_Submit"
                                         data-loading-text="Generating..." class="btn btn-primary btn-lg">Generate
                                         CSR</button>
+                                    <!-- <button class="btn btn-success btn-lg float-end" type="submit">History</button> -->
+                                    <div class="dropdown float-end dropup" id="mainhistorydiv">
+                                        <button class="btn btn-success btn-lg dropdown-toggle float-end" type="button"
+                                            id="dropdownHistoryButton" data-bs-toggle="dropdown"
+                                            aria-expanded="false">History</button>
+                                        <ul class="dropdown-menu" id="drpHistoryOptionsMenu"
+                                            aria-labelledby="dropdownHistoryButton">
+                                            <li><a class="dropdown-item disabled" href="#">No History Found.</a></li>
+
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
+
+
+
 
                         </fieldset>
                     </form>
                 </div>
-                <div class="col" id="result_div_main_1" >
+                <div class="col" id="result_div_main_1">
 
                     <div class="form-horizontal">
                         <fieldset>
 
                             <div id="text_csr_area" class="form-group invisible">
-                                <label class="form-label" for="textarea_csr">CSR : (Click on CSR to Copy To
+                                <label class="form-label fw-bold" for="textarea_csr">CSR : (Click on CSR to Copy To
                                     Clipboard)</label>
                                 <div class="">
                                     <textarea class="form-control" id="textarea_csr"
@@ -438,12 +453,12 @@
                                 <label class="form-label" for="button_downloadcsr"></label>
                                 <div class="container form-group">
                                     <div class="float-start">
-                                    <button id="button_downloadcsr" name="button_downloadcsr"
-                                        class="btn btn-info">Download CSR</button>
+                                        <button id="button_downloadcsr" name="button_downloadcsr"
+                                            class="btn btn-info">Download CSR</button>
                                     </div>
                                     <div class="float-end">
-                                    <button id="button_downloadprivatekey" name="button_downloadprivatekey"
-                                        class="btn btn-success">Download Private Key</button>
+                                        <button id="button_downloadprivatekey" name="button_downloadprivatekey"
+                                            class="btn btn-info">Download Private Key</button>
                                     </div>
 
                                 </div>
@@ -455,14 +470,13 @@
                                 <label class="form-label" for="button_reset"></label>
                                 <div class="container float-start">
                                     <button id="button_reset" name="button_reset" class="btn btn-warning">Reset</button>
-
                                 </div>
                             </div>
 
                         </fieldset>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -479,14 +493,13 @@
                 </a>
                 <br />
                 &#169; Copyright 2023.
-                By, Jayvardhan.         (Now using <s>BootStrap 4</s> BootStrap 5.)       
+                By, Jayvardhan. (Now using <s>BootStrap 4</s> BootStrap 5.)
             </p>
         </div>
-        <script src="jquery.min.js"></script>        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
-            integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        <script src="jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script> -->
+
         <script>
 
             function download(filename, text) {
@@ -632,69 +645,55 @@
                     crossDomain: true,
                     dataType: "json",
                     success: function (data, status, jqXHR) {
-
                         $.each(data, function (key, value) {
-
                             if (key == "error" && !value.trim()) {
-
                                 error = value;
                             } else {
                                 if (key == "csr") {
-
                                     publickey = value;
                                 }
                                 if (key == "key") {
-
                                     privatekey = value;
                                 }
-                                
-                                //Cookies.set(uuidv4(), data1);
-
                             }
                         });
+
                         $("#result_div_main_1").removeClass().addClass("col");
                         $("#result_div_main_1").show();
 
                         var ansfinal = makeResponse(error, publickey, privatekey);
                         showoutput(ansfinal);
+
+                        if (error.trim() === null || error.trim() === '') {
+                            setDataToStorage(cn, data1);
+                        }
+
                     },
                     error: function (data, status, jqXHR) {
                         $("#result_div_main_1").removeClass().addClass("col");
                         $("#result_div_main_1").show();
                         error = "Internal Server Error. " + status;
                         $.each(data, function (key, value) {
-
-
                             if (key == "responseText") {
-
                                 try {
                                     var jsonobj = $.parseJSON(value);
                                     $.each(jsonobj, function (key, ans) {
-
                                         if (key == "error") {
                                             error = ans;
                                         }
-
-
-
                                     });
                                 } catch (err) {
                                     error = "Internal Server Error. -> " + status;
                                 }
-
                             }
-
                         });
-
                         var ansfinal = makeResponse(error, publickey, privatekey);
                         showoutput(ansfinal);
                     }
                 });
 
                 var ansfinal = makeResponse(error, publickey, privatekey);
-                
                 return ansfinal;
-
             }
 
             function stripTrailingSlash(str) {
@@ -702,11 +701,11 @@
             }
 
             $(document).ready(function () {
-
+                hideShowHistoryButton();
+                fillDataIntoHistoryButton();
                 $("#result_div_main_1").removeClass().addClass("shjfkshf");
                 $("#result_div_main_1").hide();
                 $("#button_reset").click(function () {
-
                     resetform();
                 });
 
@@ -742,13 +741,114 @@
 
                     event.preventDefault();
                 });
+
+
             });
 
 
             function uuidv4() {
-                return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
                     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
                 );
+            }
+
+            function setDataToStorage(key, val) {
+                if (typeof (Storage) != "undefined") {
+                    localStorage.setItem(key, val);
+                }
+                hideShowHistoryButton();
+                fillDataIntoHistoryButton();
+            }
+
+            function getDataFromStorage(key) {
+                if (typeof (Storage) != "undefined") {
+                    return localStorage.getItem(key);
+                }
+            }
+
+            function getAllDataFromStorage() {
+                if (typeof (Storage) != "undefined") {
+                    for (var i = 0; i < localStorage.length; i++) {
+                        //console.log(localStorage.getItem(localStorage.key(i)));
+                    }
+                }
+            }
+
+            function doesDataExistInStorage() {
+                if (typeof (Storage) != "undefined") {
+                    for (var i = 0; i < localStorage.length; i++) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function onHistoryDrpClick(data) {
+                //console.log(data);
+            }
+
+            function hideShowHistoryButton() {
+                if (doesDataExistInStorage() == true) {
+                    $("#mainhistorydiv").show();
+                } else {
+                    $("#mainhistorydiv").hide();
+                }
+            }
+
+            function fillDataIntoHistoryButton() {
+                if (doesDataExistInStorage() == true) {
+                    if (typeof (Storage) != "undefined") {
+                        if (localStorage.length > 0) {
+                            $("#drpHistoryOptionsMenu").children().remove();
+                        }
+                        for (var i = 0; i < localStorage.length; i++) {
+
+                            var curr_data = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                            //console.log(curr_data);
+
+                            var list = document.getElementById("drpHistoryOptionsMenu");
+
+                            var opt = curr_data.commonname;
+                            var li = document.createElement("li");
+                            var link = document.createElement("a");
+                            var text = document.createTextNode(opt);
+                            link.appendChild(text);
+                            link.href = "javascript:;";
+                            link.className = "dropdown-item";
+                            link.onclick = function () { fillDataFromHistory(this) };
+                            li.appendChild(link);
+                            list.appendChild(li);
+
+
+                        }
+                    }
+                }
+            }
+
+            function fillDataFromHistory(op) {
+                //console.log(op.innerText);
+                fillDataFinalFromKey(op.innerText);
+            }
+
+            function fillDataFinalFromKey(keyName) {
+                var dta = JSON.parse(getDataFromStorage(keyName));
+                //console.log(dta);
+
+                $("#textinput_CN").val(dta.commonname);
+                $("#textinput_C").val(dta.country);
+                $("#textinput_O").val(dta.organization);
+                $("#textinput_OU").val(dta.organizationunit);
+                $("#textinput_S").val(dta.state);
+                $("#textinput_L").val(dta.locality);
+                if(dta.keysize == "2048"){
+                    $("#radios_KeySize-0").click();
+                }else if(dta.keysize == "3072"){
+                    $("#radios_KeySize-2").click();
+                }else if(dta.keysize == "4096"){
+                    $("#radios_KeySize-1").click();
+                }
+                $("#button_Submit").submit();
+
             }
 
 
