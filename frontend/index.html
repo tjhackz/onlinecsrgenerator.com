@@ -56,11 +56,13 @@
         <div class="page-header">
             <br />
             <h1 class="text-center">Online CSR Generator</h1>
+            <h6 class="text-center">The <u>Fastest</u> Way To Generate a CSR! </h6>
         </div>
 
 
         <div class="container" style="padding-bottom: 100px;">
             <div class="row">
+                
                 <div class="col">
 
                     <form class="form-horizontal" id="csrform">
@@ -72,7 +74,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_CN">Common Name:</label>
+                                <label class="form-label fw-bold" for="textinput_CN">Common Name (CN):</label>
                                 <div class="">
                                     <input id="textinput_CN" name="textinput_CN" type="text" placeholder="example.com"
                                         maxlength="100" class="form-control input-md" required=""
@@ -81,7 +83,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_O">Organization:</label>
+                                <label class="form-label fw-bold" for="textinput_O">Organization (O):</label>
                                 <div class="">
                                     <input id="textinput_O" name="textinput_O" type="text"
                                         placeholder="ABC Organization LLC" maxlength="100" class="form-control input-md"
@@ -90,7 +92,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_C">Country:</label>
+                                <label class="form-label fw-bold" for="textinput_C">Country (C):</label>
                                 <div class="">
                                     <!-- <input id="textinput_C" name="textinput_C" type="text" placeholder="IN"
                                         class="form-control input-md" maxlength="3" required=""> -->
@@ -347,33 +349,33 @@
                                         <option value="ZM">Zambia</option>
                                         <option value="ZW">Zimbabwe</option>
                                     </select>
-                                    <span class="help-block">Select Country. (C)</span>
+                                    <span class="help-block">Select Country.</span>
                                 </div>
                             </div>
 
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_S">State:</label>
+                                <label class="form-label fw-bold" for="textinput_S">State Or Province Name (S):</label>
                                 <div class="">
                                     <input id="textinput_S" name="textinput_S" type="text" placeholder="Gujarat"
                                         class="form-control input-md" maxlength="100" required="">
-                                    <span class="help-block">Enter State Name/ State Code here. (S)</span>
+                                    <span class="help-block">Enter State Name/ State Code here.</span>
                                 </div>
                             </div>
 
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_L">Locality/City:</label>
+                                <label class="form-label fw-bold" for="textinput_L">Locality/City (L):</label>
                                 <div class="">
                                     <input id="textinput_L" name="textinput_L" type="text" placeholder="Ahmedabad"
                                         class="form-control input-md" maxlength="100" required="">
-                                    <span class="help-block">Enter City Name/ Locality here. (L)</span>
+                                    <span class="help-block">Enter City Name/ Locality here.</span>
                                 </div>
                             </div>
 
 
                             <div class="mb-3">
-                                <label class="form-label" for="textinput_OU">Organization Unit</label>
+                                <label class="form-label fw-bold" for="textinput_OU">Organization Unit (OU):</label>
                                 <div class="">
                                     <input id="textinput_OU" name="textinput_OU" type="text" placeholder="IT"
                                         maxlength="20" class="form-control input-md">
@@ -382,12 +384,17 @@
                             </div>
 
                             <div class="mb-3" id="radiokeysize">
-                                <label class="form-label" for="radios_KeySize">Key Size</label>
+                                <label class="form-label fw-bold" for="radios_KeySize">Key Size</label>
                                 <div class="form-check">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" id="radios_KeySize-0" type="radio" value="2048"
                                             name="radios_KeySize" data-sb-validations="required" checked />
                                         <label class="form-check-label" for="radios_KeySize-0">2048</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" id="radios_KeySize-2" type="radio" value="3072"
+                                            name="radios_KeySize" data-sb-validations="required" />
+                                        <label class="form-check-label" for="radios_KeySize-2">3072</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" id="radios_KeySize-1" type="radio" value="4096"
@@ -455,6 +462,7 @@
                         </fieldset>
                     </div>
                 </div>
+                
             </div>
         </div>
 
@@ -471,14 +479,14 @@
                 </a>
                 <br />
                 &#169; Copyright 2023.
-                By, Jayvardhan.         (Now using BootStrap 5!)       
+                By, Jayvardhan.         (Now using <s>BootStrap 4</s> BootStrap 5.)       
             </p>
         </div>
         <script src="jquery.min.js"></script>        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
             integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+        <!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script> -->
         <script>
 
             function download(filename, text) {
@@ -496,6 +504,7 @@
                 $("#error_div").addClass("visible");
                 $("#textinput_error")[0].innerHTML = errortext;
             }
+
             function hideError() {
                 $("#error_div").removeClass("visible");
                 $("#error_div").addClass("invisible");
@@ -528,6 +537,7 @@
                 $("#divreset").removeClass("visible");
                 $("#divreset").addClass("invisible");
             }
+
             function emptyfun() {
 
             }
@@ -542,7 +552,6 @@
 
                 return obj;
             }
-
 
             function showoutput(objret1) {
 
@@ -596,7 +605,6 @@
 
             }
 
-
             function resetform() {
                 location.reload();
                 window.scrollTo(0, 0);
@@ -639,15 +647,20 @@
 
                                     privatekey = value;
                                 }
+                                
+                                //Cookies.set(uuidv4(), data1);
+
                             }
                         });
-
+                        $("#result_div_main_1").removeClass().addClass("col");
+                        $("#result_div_main_1").show();
 
                         var ansfinal = makeResponse(error, publickey, privatekey);
                         showoutput(ansfinal);
                     },
                     error: function (data, status, jqXHR) {
-
+                        $("#result_div_main_1").removeClass().addClass("col");
+                        $("#result_div_main_1").show();
                         error = "Internal Server Error. " + status;
                         $.each(data, function (key, value) {
 
@@ -679,6 +692,7 @@
                 });
 
                 var ansfinal = makeResponse(error, publickey, privatekey);
+                
                 return ansfinal;
 
             }
@@ -699,8 +713,8 @@
                 $("#csrform").submit(function (event) {
 
 
-                    $("#result_div_main_1").removeClass().addClass("col");
-                    $("#result_div_main_1").show();
+                    // $("#result_div_main_1").removeClass().addClass("col");
+                    // $("#result_div_main_1").show();
                     $("#button_Submit").text('Loading');
                     document.getElementById("button_Submit").disabled = true;
                     document.getElementById("button_Submit").innerHTML
@@ -729,6 +743,14 @@
                     event.preventDefault();
                 });
             });
+
+
+            function uuidv4() {
+                return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+                );
+            }
+
 
         </script>
 
